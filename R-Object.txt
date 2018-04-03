@@ -1,0 +1,80 @@
+#R-Object
+#1-1
+x<-c(17,16,20,24,22,15,21,18)
+x[x>=20]
+#1-2
+y<-x
+y[y>=20]<-100
+y
+
+#2-1
+x<-matrix(c(3,rep(-1,5),4,rep(-1,5),5,rep(-1,5),6,rep(-1,5),7),5,5)
+x
+#2-2
+y<-x
+y<-y[,-5]
+y
+#2-3
+yinfo<-c(nrow(y),ncol(y))
+yinfo
+#2-4
+y1<-y
+for (i in 1:nrow(y1))
+{
+  for (j in 1:ncol(y1))
+  {
+    if (y1[i,j]==-1)
+    {
+      y1[i,j]<-0
+    }
+  }
+}
+y1
+
+#3-1
+setwd("C:/tmp")
+rdata<-read.table("rowdata.txt", header=TRUE, sep="\t", stringsAsFactors = FALSE)
+class(rdata)
+#3-2
+is.na()
+#3-3
+which((is.na(rdata$v2)==F)|(is.na(rdata$v3)==F))
+#3-4
+rdata1<-data.frame()
+z=which((is.na(rdata$v2)==F)&(is.na(rdata$v3)==F))
+for (i in z)
+{
+  rdata1<-rbind(rdata1,rdata[i,])
+}
+rdata1
+
+#4-1
+temp<-list(c(T,F),diag(1,2,2),seq(0,1,length=100),1,2,3,4)
+temp
+#4-2
+temp[[2]]=NULL
+temp
+#4-3
+temp[[3]]
+#4-4
+length(temp)
+
+#5-1
+a1 <- -1:2
+a2 <- 1:2
+a1 + a2
+#5-2
+a1 <- -(1:2)
+a2 <- 1:2
+a1 + a2
+#5-3
+a1 <- matrix(0,2,2)
+a2 <- c(3,4)
+a1 + a2
+#5-4
+a1 <- matrix(1:4,2,2)
+a1[a1>2] = 0
+a1 
+#5-5
+a1 <- 1:5
+a1[-1] - a1[-length(a1)]
