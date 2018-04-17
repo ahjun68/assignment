@@ -7,7 +7,6 @@ x.tr <- sort(rnorm(100))
 y.tr <- 3+x.tr^2 + rnorm(100)
 
 #또 데이터 생성
-set.seed(2)
 x.te <- sort(rnorm(100))
 y.te <- 3+x.te^2 + rnorm(100)
 
